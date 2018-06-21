@@ -1,0 +1,37 @@
+<openerp>
+    <data>
+    	<record model="ir.ui.view" id="ftz_pos_order_import_form">
+    		<field name="name">ftz_pos_order_import.form</field>
+    		<field name="model">ftz_pos_order_import.ftz_pos_order_import</field>
+    		<field name="arch" type="xml">
+    			<form string="description">
+    				<header>
+    				</header>
+    				<sheet>
+    					<h1>Import File</h1>
+    					<group>
+    						<field name="name" invisible="1"/>
+    						<field name="upload_file" filename="name" widget="binary"/>
+    					</group>
+    				</sheet>
+    				<footer>
+						<button name="do_process" type="object" string="Import"/>
+						<button name="cancel" string="Cancel" special="cancel" class="oe_link btn_cancel_popup"/>
+					</footer>
+    			</form>
+    		</field>
+    	</record>       
+    	<record id="action_ftz_pos_order_import" model="ir.actions.act_window">
+    		<field name="name">Import POS Order</field>
+    		<field name="res_model">ftz_pos_order_import.ftz_pos_order_import</field>
+    		<field name="view_type">form</field>
+    		<field name="view_mode">form</field>
+    		<field name="target">new</field>
+    	</record>
+    	<menuitem id="ftz_pos_order_import_menu" 
+            name="Import POS Order" 
+            parent="point_of_sale.menu_point_config_product" 
+            action="action_ftz_pos_order_import"
+            sequence="222"/>
+    </data>
+</openerp>
